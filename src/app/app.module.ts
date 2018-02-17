@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 
+import { UserService } from './shared/services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
