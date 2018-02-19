@@ -1,24 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from './shared/services/user.service';
-import { User } from './shared/model/user';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sky-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'sky';
-  users: User[];
-
-  constructor(private userService: UserService) {
-    console.log('testt');
-  }
-
-  ngOnInit() {
-    this.userService.getUsers()
-      .subscribe((result) => {
-        console.log(result);
-      });
-  }
 }

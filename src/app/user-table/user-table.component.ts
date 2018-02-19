@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { User } from '../shared/model/user'
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'sky-user-table',
@@ -9,8 +10,9 @@ import { User } from '../shared/model/user'
 })
 export class UserTableComponent implements OnInit {
 
-  displayedColumns = ['name', 'lastname', 'username', 'email'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns = ['name', 'lastname', 'username', 'email', 'options'];
+
+  dataSource = new MatTableDataSource([]);
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -18,14 +20,13 @@ export class UserTableComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUsers()
+      .subscribe((result) => {
+        this.dataSource = new MatTableDataSource(result.data);
+        this.ngAfterViewInit();
+      });
   }
-
 }
-
-const ELEMENT_DATA: User[] = [
-  { _id: '1', name: 'Angel', lastname: 'Antezana', username: 'anghel7', email: 'anghel@gmail.com', avatar: 'no hay avatar', type: 'USER' },
-  { _id: '2', name: 'Laura', lastname: 'Vazques', username: 'laur123', email: 'laura@gmail.com', avatar: 'no hay avatar', type: 'USER' },
-];
