@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 
 import { UserService } from './shared/services/user.service';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserService } from './shared/services/user.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
