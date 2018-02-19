@@ -10,6 +10,7 @@ import { UserService } from './shared/services/user.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserTableComponent } from './user-table/user-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserTableComponent } from './user-table/user-table.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
