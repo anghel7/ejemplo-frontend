@@ -9,10 +9,12 @@ import { MaterialModule } from './material/material.module';
 import { UserService } from './shared/services/user.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { UserTableComponent } from './user-table/user-table.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserTableComponent
   ],
   imports: [
     BrowserModule,
